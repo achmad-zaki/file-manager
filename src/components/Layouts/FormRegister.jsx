@@ -1,41 +1,62 @@
-import FormGroup from "../Form/FormGroup"
-import Label from "../Form/Label"
-import Input from "../Form/Input"
-import InputPassword from "../Form/InputPassword"
-import Button from "../Button/Button"
+import { Button, Form, Input } from "antd"
 
-const FormRegister = () => {
+const FormLogin = () => {
+
+    const onFinish = (values) => {
+        console.log('Success:', values);
+    };
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+    };
+
     return (
-        <form action="#">
-            <FormGroup>
-                <Label className="form-label mb-2">Username</Label>
-                <Input
-                    className="form-input"
-                    placeholder="Enter your username"
-                    type="text"
-                    name="username"
-                />
-            </FormGroup>
-            <FormGroup className="mt-4">
-                <Label className="form-label mb-2">Email</Label>
-                <Input
-                    className="form-input"
-                    placeholder="Enter your email"
-                    type="text"
-                    name="email"
-                />
-            </FormGroup>
-            <FormGroup className="mt-4">
-                <Label className="form-label mb-2">Password</Label>
-                <InputPassword
-                    className="form-input"
-                    placeholder="Enter your password"
-                    name="password"
-                />
-            </FormGroup>
-            <Button type="submit" className="btn-primary">Register</Button>
-        </form>
+        <Form
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            layout="vertical"
+        >
+            <Form.Item
+                htmlFor="username"
+                name="username"
+                label="Username"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please input your username!'
+                    }
+                ]}
+            >
+                <Input className="py-2" placeholder="Enter your username" />
+            </Form.Item>
+            <Form.Item
+                htmlFor="email"
+                name="email"
+                label="Email"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please input your email!'
+                    }
+                ]}
+            >
+                <Input className="py-2" placeholder="Enter your email" />
+            </Form.Item>
+            <Form.Item
+                htmlFor="password"
+                name="password"
+                label="Password"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please input your password!'
+                    }
+                ]}
+            >
+                <Input.Password className="py-2" placeholder="Enter your password" />
+            </Form.Item>
+            <Button htmlType="submit" type="primary" size="large" className="bg-blue-500 w-full mt-3 font-medium">Register</Button>
+        </Form>
     )
 }
 
-export default FormRegister
+export default FormLogin

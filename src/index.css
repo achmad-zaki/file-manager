@@ -4,11 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
     body {
         @apply font-poppins text-primary
     }
-}
+} */
 
 @layer utilities {
     .form-input {

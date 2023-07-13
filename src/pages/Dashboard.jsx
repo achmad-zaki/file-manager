@@ -1,8 +1,12 @@
-import React from 'react'
+import { Content } from 'antd/es/layout/layout'
+import Sidebar from '../components/Sidebar'
+import { Card } from 'antd'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <Sidebar>
+      asdas
+    </Sidebar>
   )
 }
 
